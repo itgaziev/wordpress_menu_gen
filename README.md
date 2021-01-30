@@ -1,8 +1,9 @@
-# wordpress_menu_gen
 Wordpress Генерация меню с помощью фильтров
 
-# Call echo MenuLocation::start(array('theme_location' => 'pages'));
-# Example add_filter
+Call echo MenuLocation::start(array('theme_location' => 'pages'));
+Example add_filter
+```php
+<?php
 add_filter( 'menu_location_pages_wrapper', 'menu_location_pages_wrapper', 10, 1 );
 function menu_location_pages_wrapper($wrapper) {
     return '<div class="links">'.$wrapper.'</div>';
@@ -33,3 +34,5 @@ function submenu_location_pages_item($data, $child, $level) {
 
     return '<li role="presentation" class="'.implode(' ', $data->classes).'" id="item-'.$data->object_id.'"><a href="'.$data->url.'">'.$data->title.'</a> </li>';
 }
+?>
+```
